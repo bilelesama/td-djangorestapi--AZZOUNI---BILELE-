@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des Chercheurs</title>
+</head>
+<body>
+    <h1>Liste des Chercheurs</h1>
+    <ul>
+        {% for chercheur in chercheurs %}
+            <li>{{ chercheur.nom }} - {{ chercheur.specialite }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'ajouter_chercheur' %}">Ajouter un Chercheur</a>
+</body>
+</html>

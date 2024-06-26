@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ajouter une Publication</title>
+</head>
+<body>
+    <h1>Ajouter une Publication</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="titre">Titre:</label>
+        <input type="text" id="titre" name="titre"><br>
+        <label for="resume">Résumé:</label>
+        <textarea id="resume" name="resume"></textarea><br>
+        <label for="projet_associe">Projet Associé:</label>
+        <select id="projet_associe" name="projet_associe">
+            {% for projet in projets %}
+                <option value="{{ projet.id }}">{{ projet.titre }}</option>
+            {% endfor %}
+        </select><br>
+        <label for="date_publication">Date de Publication:</label>
+        <input type="date" id="date_publication" name="date_publication"><br>
+        <button type="submit">Ajouter</button>
+    </form>
+</body>
+</html>

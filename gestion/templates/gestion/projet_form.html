@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ajouter un Projet</title>
+</head>
+<body>
+    <h1>Ajouter un Projet</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="titre">Titre:</label>
+        <input type="text" id="titre" name="titre"><br>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description"></textarea><br>
+        <label for="date_debut">Date de Début:</label>
+        <input type="date" id="date_debut" name="date_debut"><br>
+        <label for="date_fin_prevue">Date de Fin Prévue:</label>
+        <input type="date" id="date_fin_prevue" name="date_fin_prevue"><br>
+        <label for="chef_de_projet">Chef de Projet:</label>
+        <select id="chef_de_projet" name="chef_de_projet">
+            {% for chercheur in chercheurs %}
+                <option value="{{ chercheur.id }}">{{ chercheur.nom }}</option>
+            {% endfor %}
+        </select><br>
+        <button type="submit">Ajouter</button>
+    </form>
+</body>
+</html>

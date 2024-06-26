@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des Projets</title>
+</head>
+<body>
+    <h1>Liste des Projets</h1>
+    <ul>
+        {% for projet in projets %}
+            <li>{{ projet.titre }} - Chef de Projet: {{ projet.chef_de_projet.nom }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'ajouter_projet' %}">Ajouter un Projet</a>
+</body>
+</html>
